@@ -25,3 +25,7 @@ if (process.env.OPENSHIFT_POSTGRES_DB_PASSWORD) {
 }
 
 console.error("Postgres on " + connection_string);
+
+for (i in process.env) {
+    console.error(i + " -> " + process.env[i]);
+}
