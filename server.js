@@ -16,16 +16,12 @@ app.listen(port || 8080, ip);
 
 var connection_string = "postgres://localhost/openshift";
 
-if (process.env.OPENSHIFT_POSTGRES_DB_PASSWORD) {
+if (process.env.OPENSHIFT_POSTGRESQL_DB_PASSWORD) {
   connection_string = "postgres://"
-        + process.env.OPENSHIFT_POSTGRES_DB_USERNAME + ":" +
-        process.env.OPENSHIFT_POSTGRES_DB_PASSWORD + "@" +
-        process.env.OPENSHIFT_POSTGRES_DB_HOST + ':' +
-        process.env.OPENSHIFT_POSTGRES_DB_PORT + '/openshift';
+        + process.env.OPENSHIFT_POSTGRESQL_DB_USERNAME + ":" +
+        process.env.OPENSHIFT_POSTGRESQL_DB_PASSWORD + "@" +
+        process.env.OPENSHIFT_POSTGRESQL_DB_HOST + ':' +
+        process.env.OPENSHIFT_POSTGRESQL_DB_PORT + '/openshift';
 }
 
 console.error("Postgres on " + connection_string);
-
-for (i in process.env) {
-    console.error(i + " -> " + process.env[i]);
-}
